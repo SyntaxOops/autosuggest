@@ -3,9 +3,13 @@
 Adds a dynamic suggestion list below a text input field.
 This extension includes jQuery to function properly.
 
+---
+
 #### Troubleshooting
 
 > [FE][pageNotFoundOnCHashError] = 0
+
+---
 
 ### Frontend
 
@@ -19,6 +23,8 @@ The auto suggest plugin works on the frontend using HTML data attributes.
 
 > The extension provides the auto suggest ViewHelper namespace.
 > This namespace is automatically loaded.
+
+---
 
 ### Backend
 
@@ -40,7 +46,6 @@ The auto suggest plugin works on the frontend using HTML data attributes.
         ],
     ];
 
-
 #### News Suggests Service
 
 This service has the identifier `news` and provides suggestions for news titles from allowed storage folders.
@@ -58,7 +63,6 @@ To configure allow folder to use :
             }
         }
     }
-
 
 #### Custom Suggest Services
 
@@ -102,8 +106,22 @@ The class must implement `SuggestServiceInterface.php`.
 
 > Clear caches and you're ready to go!
 
+---
+
 ### Note
 
 The extension provides an abstract service class, `AbstractExtbaseSuggestService.php`.<br>
 This class can be extended to create *Extbase*-based suggest services,
 allowing you to fetch data using queries, repositories, or other Extbase mechanisms.
+
+---
+
+### Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request with improvements or bug fixes.
+
+---
+
+### License
+
+MIT License – see the LICENSE file for details.
