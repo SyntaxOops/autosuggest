@@ -1,0 +1,6 @@
+/.Build
+/.idea
+/Resources/Public/Build
+/composer.lock
+/vendor
+.php-cs-fixer.cache

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="fr" datatype="plaintext" original="messages" product-name="autosuggest">
+		<header/>
+		<body>
+			<trans-unit id="autosuggest.helpText" approved="yes">
+				<target state="translated">Utilisez les touches de tabulation ou la flèche du bas pour naviguer dans la liste du champ autocomplété.
+				Confirmez votre choix avec la touche entrée, ou la touche échap pour fermer la liste de suggestions.</target>
+			</trans-unit>
+			<trans-unit id="autosuggest.buttonTitle" approved="yes">
+				<target state="translated">Effacer ce champ</target>
+			</trans-unit>
+			<trans-unit id="suggestion.single" approved="yes" xml:space="preserve">
+				<target state="translated">Il y a </target>
+			</trans-unit>
+			<trans-unit id="suggestion.plural" approved="yes" xml:space="preserve">
+				<target state="translated">Il y a </target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

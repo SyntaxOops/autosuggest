@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="autosuggest">
+		<header/>
+		<body>
+			<trans-unit id="autosuggest.helpText">
+				<source>Use the tabulation keys or the down arrow to browse the list of the auto-completed field.
+				Confirm your choice with the ENTER key, or press ESCAPE to close the suggestion list.</source>
+			</trans-unit>
+			<trans-unit id="autosuggest.buttonTitle">
+				<source>Empty the field</source>
+			</trans-unit>
+			<trans-unit id="suggestion.single" xml:space="preserve">
+				<source>There is </source>
+			</trans-unit>
+			<trans-unit id="suggestion.plural" xml:space="preserve">
+				<source>There are </source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

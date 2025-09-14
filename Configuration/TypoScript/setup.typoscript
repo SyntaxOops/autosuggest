@@ -1,0 +1,44 @@
+page {
+    includeJSFooter {
+        jsAutosuggest = EXT:autosuggest/Resources/Public/Js/autosuggest.js
+    }
+    includeCSS {
+        cssAutosuggest = EXT:autosuggest/Resources/Public/Css/autosuggest-bootstrap.css
+    }
+}
+
+plugin.tx_autosuggest {
+	settings {
+		ajaxTypeNum = 1504009000
+		additionalAttributes {
+            class = js-combobox js-combobox-custom
+            data-combobox-prefix-class = combobox
+            data-combobox-case-sensitive = no
+            data-combobox-search-option = containing
+            data-combobox-limit-number-suggestions = 10
+		}
+	}
+}
+
+1504009000 = PAGE
+1504009000 {
+	typeNum = 1504009000
+	headerData >
+	config {
+		no_cache = 1
+		disableAllHeaderCode = 1
+		xhtml_cleaning = 0
+		admPanel = 0
+		debug = 0
+		additionalHeaders {
+			10 {
+				header = Content-Type: application/json
+				replace = 1
+			}
+		}
+	}
+	10 = USER_INT
+	10 {
+		userFunc = SyntaxOOps\Autosuggest\Core\Bootstrap->run
+	}
+}
