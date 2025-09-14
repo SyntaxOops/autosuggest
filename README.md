@@ -15,20 +15,53 @@ This extension includes jQuery to function properly.
 
 ### Frontend
 
+![Screenshot](Documentation/screenshot-for-frontend.png)
+
 The auto suggest plugin works on the frontend using HTML data attributes.
+
+    {namespace as=SyntaxOOps\Autosuggest\ViewHelpers}
 
     <f:form.textfield
         name="my_field"
-        additionalAttributes="{autosuggest:suggestDataAttributes(identifier: 'news', pids: '123',
+        additionalAttributes="{as:suggestDataAttributes(identifier: 'news', pids: '123',
         additionalParameters: {table: 'tx_news_domain_model_news', field: 'title', recursive: 1, recursive_depth: 99})}"
     />
 
 > The extension provides the auto suggest ViewHelper namespace.
 > This namespace is automatically loaded.
 
+Alternatively, you can use TypoScript for the configuration and pass only the identifier to the ViewHelper.
+
+    {namespace as=SyntaxOOps\Autosuggest\ViewHelpers}
+
+    <f:form.textfield
+        name="my_field"
+        additionalAttributes="{as:suggestDataAttributes(identifier: 'news')}"
+    />
+
+    plugin.tx_autosuggest {
+        settings {
+            news {
+                storagePids {
+                    0 = 123
+                    1 = 213
+                    2 = 312
+                }
+                additionalParameters {
+                    table = tx_news_domain_model_news
+                    field = title
+                    recursive = 1
+                    recursive_depth = 99
+                }
+            }
+        }
+    }
+
 ---
 
 ### Backend
+
+![Screenshot](Documentation/screenshot-for-backend.png)
 
 #### Enable auto suggest for backend input fields
 
@@ -36,7 +69,7 @@ The auto suggest plugin works on the frontend using HTML data attributes.
         'identifier' => 'news',
         'table' => 'tx_news_domain_model_news',
         'field' => 'title',
-        'storage_pids' => '5,10',
+        'storage_pids' => '123,213,312',
         'additionalUriParameters' => [
             'recursive' => true, // include subfolder of storage_pids
             'recursive_depth' => 999
@@ -48,23 +81,7 @@ The auto suggest plugin works on the frontend using HTML data attributes.
         ],
     ];
 
-#### News Suggests Service
-
-This service has the identifier `news` and provides suggestions for news titles from allowed storage folders.
-
-To configure allow folder to use :
-
-    plugin.tx_autosuggest {
-        settings {
-            storagePids {
-                news {
-                    0 = 123
-                    1 = 213
-                    2 = 312
-                }
-            }
-        }
-    }
+---
 
 #### Custom Suggest Services
 
@@ -74,13 +91,25 @@ These are singleton classes designed to provide data for suggestion features.
 To register a suggested service, add the registration code to your extension’s `ext_localconf.php` file:
 
     $GLOBALS['TYPO3_CONF_VARS']['EXT']['autosuggest']['custom'] =
-        \Vendor\MyExt\Service\Suggest\CustomSuggestService::class;
+        \Vendor\MyExtension\Service\Suggest\CustomSuggestService::class;
 
 > The array key custom serves as the SuggestService identifier.<br>
 > This is the value you will use in your ViewHelper to access its suggestions.
 
 Once registered, create the corresponding service class to provide the data.<br>
-The class must implement `SuggestServiceInterface.php`.
+The class can either :
+
+Extend `GenericSuggestService.php` class
+
+    /**
+     * Class CustomSuggestService
+     */
+    class CustomSuggestService extends GenericSuggestService
+    {
+        protected string $type = 'custom';
+    }
+
+Or implement `SuggestServiceInterface.php` interface.
 
     /**
      * Class CustomSuggestService

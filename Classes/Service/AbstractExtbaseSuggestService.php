@@ -22,7 +22,7 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 /**
  * Class AbstractExtbaseSuggestService
  *
- * @author  Haythem Daoud <haythemdaoud.x@gmail.com>
+ * @author Haythem Daoud <haythemdaoud.x@gmail.com>
  */
 abstract class AbstractExtbaseSuggestService implements SuggestServiceInterface, SingletonInterface
 {
@@ -151,8 +151,10 @@ abstract class AbstractExtbaseSuggestService implements SuggestServiceInterface,
      */
     protected function getStoragePidsFromSettings(): array
     {
-        if (Request::isFrontend()) {
-            $storagePids = $this->settings['storagePids'][$this->type];
+        if (Request::isFrontend() &&
+            isset($this->settings[$this->type])
+        ) {
+            $storagePids = $this->settings[$this->type]['storagePids'];
         }
 
         return $storagePids ?? [];

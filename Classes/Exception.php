@@ -14,6 +14,6 @@ namespace SyntaxOOps\Autosuggest;
 /**
  * Class Exception
  *
- * @author  Haythem Daoud <haythemdaoud.x@gmail.com>
+ * @author Haythem Daoud <haythemdaoud.x@gmail.com>
  */
 class Exception extends \Exception {}

@@ -20,7 +20,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * Class GenericSuggestService
  *
- * @author  Haythem Daoud <haythemdaoud.x@gmail.com>
+ * @author Haythem Daoud <haythemdaoud.x@gmail.com>
  */
 class GenericSuggestService extends AbstractExtbaseSuggestService
 {
@@ -28,7 +28,7 @@ class GenericSuggestService extends AbstractExtbaseSuggestService
     protected const DEFAULT_FIELD = 'title';
 
     /**
-     * Generates a list of items for the autosuggest field.
+     * Generates a list of items for the auto suggest field.
      *
      * @return array
      *

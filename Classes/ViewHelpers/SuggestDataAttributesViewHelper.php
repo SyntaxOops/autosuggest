@@ -13,7 +13,9 @@ namespace SyntaxOOps\Autosuggest\ViewHelpers;
 
 use SyntaxOOps\Autosuggest\Utility\ExtensionUtility;
 use SyntaxOOps\Autosuggest\Utility\SuggestDataAttributesUtility;
+use TYPO3\CMS\Core\Page\AssetCollector;
 use TYPO3\CMS\Core\Utility\ArrayUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -23,14 +25,22 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  * ```html
  *  <f:form.textfield
  *      name="my_field"
- *      additionalAttributes="{autosuggest:suggestDataAttributes(identifier: 'news',pids: '7',
+ *      additionalAttributes="{as:suggestDataAttributes(identifier: 'news',pids: '7',
  *      additionalParameters: {table: 'tx_news_domain_model_news', field: 'title', recursive: 1, recursive_depth: 99})}"
  *  />
+ * ```
+ * OR if the configuration is provided in TS
+ *
+ * ```html
+ *   <f:form.textfield
+ *       name="my_field"
+ *       additionalAttributes="{as:suggestDataAttributes(identifier: 'news')}"
+ *   />
  * ```
  *
  * Class SuggestDataAttributesViewHelper
  *
- * @author  Haythem Daoud <haythemdaoud.x@gmail.com>
+ * @author Haythem Daoud <haythemdaoud.x@gmail.com>
  */
 class SuggestDataAttributesViewHelper extends AbstractViewHelper
 {
@@ -78,6 +88,24 @@ class SuggestDataAttributesViewHelper extends AbstractViewHelper
 
         if (is_array($settings['additionalAttributes'])) {
             ArrayUtility::mergeRecursiveWithOverrule($additionalAttributes, $settings['additionalAttributes']);
+        }
+
+        // Load styles and scripts ONCE
+        /** @var AssetCollector $assetCollector */
+        $assetCollector = GeneralUtility::makeInstance(AssetCollector::class);
+
+        if(!$assetCollector->hasStyleSheet('autosuggest-style')) {
+            $assetCollector->addStyleSheet(
+                'autosuggest-style',
+                'EXT:autosuggest/Resources/Public/Css/autosuggest-bootstrap.css',
+            );
+        }
+
+        if(!$assetCollector->hasJavaScript('autosuggest-style')) {
+            $assetCollector->addJavaScript(
+                'autosuggest-script',
+                'EXT:autosuggest/Resources/Public/Js/autosuggest.js',
+            );
         }
 
         return $additionalAttributes;

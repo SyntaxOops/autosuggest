@@ -18,7 +18,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * Class Bootstrap
  *
- * @author  Haythem Daoud <haythemdaoud.x@gmail.com>
+ * @author Haythem Daoud <haythemdaoud.x@gmail.com>
  */
 class Bootstrap
 {

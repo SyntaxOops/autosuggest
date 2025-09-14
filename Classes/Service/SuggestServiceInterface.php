@@ -14,7 +14,7 @@ namespace SyntaxOOps\Autosuggest\Service;
 /**
  * Class SuggestServiceInterface
  *
- * @author  Haythem Daoud <haythemdaoud.x@gmail.com>
+ * @author Haythem Daoud <haythemdaoud.x@gmail.com>
  */
 interface SuggestServiceInterface
 {

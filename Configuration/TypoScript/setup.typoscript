@@ -1,13 +1,13 @@
 plugin.tx_autosuggest {
 	settings {
-		ajaxTypeNum = 1504009000
-		additionalAttributes {
+        ajaxTypeNum = 1504009000
+        additionalAttributes {
             class = js-combobox js-combobox-custom
             data-combobox-prefix-class = combobox
             data-combobox-case-sensitive = no
             data-combobox-search-option = containing
             data-combobox-limit-number-suggestions = 10
-		}
+        }
 	}
 }
 

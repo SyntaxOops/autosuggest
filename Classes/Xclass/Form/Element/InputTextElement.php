@@ -14,7 +14,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 /**
  * Class TextElement
  *
- * @author  Haythem Daoud <haythemdaoud.x@gmail.com>
+ * @author Haythem Daoud <haythemdaoud.x@gmail.com>
  */
 class InputTextElement extends ExtendedInputTextElement
 {
@@ -38,8 +38,8 @@ class InputTextElement extends ExtendedInputTextElement
             $attributes = SuggestDataAttributesUtility::get(
                 $autoSuggestConfig['identifier'],
                 $settings['ajaxTypeNum'],
-                $autoSuggestConfig['storage_pids'],
-                $autoSuggestConfig['additionalUriParameters']
+                $autoSuggestConfig['storage_pids'] ?? '',
+                $autoSuggestConfig['additionalUriParameters'] ?? []
             );
 
             if (isset($autoSuggestConfig['additionalParameters'])) {
