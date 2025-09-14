@@ -2,7 +2,7 @@
 
 $EM_CONF['autosuggest'] = [
     'title' => 'Auto Suggest FE & BE',
-    'description' => 'A TYPO3 extension that adds auto completion plugin using custom rules',
+    'description' => 'A TYPO3 extension that adds auto suggestion for frontend and backend input fields.',
     'category' => 'plugin',
     'author' => 'Haythem Daoud',
     'author_email' => 'haythemdaoud.x@gmail.com',
