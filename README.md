@@ -1,11 +1,13 @@
 # Auto Suggest Extension
 
-Adds a dynamic suggestion list below a text input field.
+Adds a dynamic suggestion list below a text input field.<br>
 This extension includes jQuery to function properly.
 
 ---
 
 #### Troubleshooting
+
+*ERROR* : Request parameters could not be validated (&cHash empty)
 
 ```php
 [FE][pageNotFoundOnCHashError] = 0
