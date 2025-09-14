@@ -1,12 +1,3 @@
-page {
-    includeJSFooter {
-        jsAutosuggest = EXT:autosuggest/Resources/Public/Js/autosuggest.js
-    }
-    includeCSS {
-        cssAutosuggest = EXT:autosuggest/Resources/Public/Css/autosuggest-bootstrap.css
-    }
-}
-
 plugin.tx_autosuggest {
 	settings {
 		ajaxTypeNum = 1504009000
