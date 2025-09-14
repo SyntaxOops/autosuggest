@@ -7,7 +7,9 @@ This extension includes jQuery to function properly.
 
 #### Troubleshooting
 
-> [FE][pageNotFoundOnCHashError] = 0
+```php
+[FE][pageNotFoundOnCHashError] = 0
+```
 
 ---
 
