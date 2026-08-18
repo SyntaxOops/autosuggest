@@ -10,7 +10,8 @@
   "authors": [
     {
       "name": "Haythem Daoud",
-      "role": "TYPO3 Backend Developer"
+      "role": "Senior TYPO3 Backend Developer",
+      "email": "hello@haythemdaoud.dev"
     }
   ],
   "license": [
@@ -60,7 +61,11 @@
   "extra": {
     "typo3/cms": {
       "extension-key": "autosuggest",
-      "web-dir": ".Build/Web"
+      "version": "13.0.1",
+      "web-dir": ".Build/Web",
+      "Package": {
+        "providesPackages": {}
+      }
     }
   }
 }
